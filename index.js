@@ -69,11 +69,14 @@ const code = req.query.code || null
 axios({
     method: 'post',
     url: 'https://accounts.spotify.com/api/token',
+    //data object formats the three required body params using stringify
     data: querystring.stringify({
         grant_type: 'authorization_code',
         code: code,
         redirect_uri: REDIRECT_URI
     }),
+
+//setup two reauest headers
     headers: {
         'content-type': 'application/x-www-form-urlencoded',
         Authorization: `Basic ${new Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString('base64')}`
