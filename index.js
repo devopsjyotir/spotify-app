@@ -59,9 +59,13 @@ app.get('/login', (req, res) => {
 })
 
 app.get('/callback', (req, res) => {
+
 const code = req.query.code || null
+//value of authorixation code on the query param
 
 
+
+//setup api request to /api/token server by passing this config object:
 axios({
     method: 'post',
     url: 'https://accounts.spotify.com/api/token',
