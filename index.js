@@ -86,18 +86,34 @@ axios({
 
 .then(response => {
     if(response.status === 200) {
-        res.send(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`)
-    } else {
-res.send(response)
+
+const {access_token, token_type} = response.data
+
+axios.get('https://api.spotify.com/v1/me', {
+    headers: {
+        Authorization: `${token_type} ${access_token}`
     }
+})
+
+    .then(response => {
+        res.send(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`)
+    })
+    
+    .catch(error => {
+        res.send(error)
+    })
+
+} else {
+res.send(response) 
+}
 })
 
 .catch(error => {
     res.send(error)
 })
-
    
 })
+
 
 app.listen(port, ()=> {
     console.log(`Express app listening at http://localhost:${port}`)
