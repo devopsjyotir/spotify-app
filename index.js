@@ -4,8 +4,10 @@ const app = express()
 const port = 8888
 const axios = require('axios')
 const querystring = require('querystring')
-const { response } = require('express')
 //built in node module that lets us parse and stringify query strings
+
+const { response } = require('express')
+
 
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
@@ -17,7 +19,7 @@ const REDIRECT_URI = process.env.REDIRECT_URI
 
 app.get('/', (req, res) => {
     const data = {
-       name: 'ngineer',
+       name: 'Jyotir',
         isAwesome: true
     }
 
@@ -87,20 +89,21 @@ axios({
 .then(response => {
     if(response.status === 200) {
 
-const {access_token, token_type} = response.data
-const { refresh_token} = response.data
+const {access_token, refresh_token} = response.data
+const queryParams = querystring.stringify({
+    access_token,
+    refresh_token
+})
 
-axios.get(`http://localhost:8888/refresh_token?refresh_token=${refresh_token}`)
-    .then(response => {
-        res.send(`<pre>${JSON.stringify(response.data, null, 2)}</pre>`)
-    })
-    
-    .catch(error => {
-        res.send(error)
-    })
+//redirect to react app
+res.redirect(`http://localhost:3000/?${queryParams}`)
+
+//pass along tokens in query params
 
 } else {
-res.send(response) 
+    //this time we want to redirect with an error query param
+res.redirect(`/?${querystring.stringify({ error:
+    'invalid_token' })}`)
 }
 })
 
