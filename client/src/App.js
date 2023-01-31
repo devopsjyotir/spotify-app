@@ -1,57 +1,90 @@
 import { useState ,useEffect } from 'react';
+
 import './App.css';
 import { accessToken, logout, getCurrentUserProfile } from './Spotify';
 import { catchErrors } from './utils';
+// import TopArtists from './TopArtists';
+
+// import TopTracks from './TopTracks';
+// import Playlists from './Playlists';
+// import PlaylistsId from './PlaylistsId';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation
+} from 'react-router-dom';
+
+// Scroll to top of page when changing routes
+// https://reactrouter.com/web/guides/scroll-restoration/scroll-to-top
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
+  const [token, setToken] = useState(null);
+  const [profile, setProfile] = useState(null);
 
-const [token, setToken] = useState(null)
-const [profile, setProfile] = useState(null)
+  useEffect(() => {
+    setToken(accessToken);
 
-  //useEffect to store the tokens in the react app and fetch data
- useEffect(() => {
-setToken(accessToken)
+    const fetchData = async () => {
+      const { data } = await getCurrentUserProfile();
+      setProfile(data);
+    };
 
-const fetchData = async () => {
+    catchErrors(fetchData());
+  }, []);
 
-    const { data } = await getCurrentUserProfile()
-    setProfile(data)
-    console.log(data)
-
-}
-catchErrors(fetchData())
-
- }, [])
-
-
- return (
-  <div className="App">
-    <header className="App-header">
-      {!token ? (
-        <a className="App-link" href="http://localhost:8888/login">
-          Log in to Spotify
-        </a>
-      ) : (
-        <>
-          <button onClick={logout}>Log Out</button>
-
-          {profile && (
-            <div>
-              <h1>{profile.display_name}</h1>
-              <h2>{profile.product}</h2>
-              <h2>{profile.country}</h2>
-              <p>{profile.followers.total} Followers</p>
-              {profile.images.length && profile.images[0].url && (
-                <img src={profile.images[0].url} alt="Avatar"/>
-              )}
-            </div>
-          )}
-        </>
-      )}
-    </header>
-  </div>
-);
+  return (
+    <div className="App">
+      <header className="App-header">
+        {!token ? (
+           <a className="App-link" href="http://localhost:8888/login">
+           Log in to Spotify
+         </a>
+       ) : (
+         <Router>
+           <Switch>
+             <Route path="/top-artists">
+               <h1>Top Artists</h1>
+             </Route>
+             <Route path="/top-tracks">
+               <h1>Top Tracks</h1>
+             </Route>
+             <Route path="/playlists/:id">
+               <h1>Playlist</h1>
+             </Route>
+             <Route path="/playlists">
+               <h1>Playlists</h1>
+             </Route>
+             <Route path="/">
+               <>
+                 <button onClick={logout}>Log Out</button>
+       
+                 {profile && (
+                   <div>
+                     <h1>{profile.display_name}</h1>
+                     <p>{profile.followers.total} Followers</p>
+                     {profile.images.length && profile.images[0].url && (
+                       <img src={profile.images[0].url} alt="Avatar"/>
+                     )}
+                   </div>
+                 )}
+               </>
+             </Route>
+           </Switch>
+         </Router>
+       )}
+      </header>
+    </div>
+  );
 }
 
 export default App;
-

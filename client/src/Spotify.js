@@ -1,22 +1,21 @@
 import axios from 'axios'
 
 
-//Map for localstorage keys
+// Map for localStorage keys
 const LOCALSTORAGE_KEYS = {
-    accessToken: 'spotify_access_token',
-    refreshToken: 'spotify_refresh_token',
-    expireTime: 'spotify_token_expire_time',
-    timestamp: 'spotify_token_timestamp'
+  accessToken: 'spotify_access_token',
+  refreshToken: 'spotify_refresh_token',
+  expireTime: 'spotify_token_expire_time',
+  timestamp: 'spotify_token_timestamp',
 }
 
-//MAp to retrieve localstorage values
+// Map to retrieve localStorage values
 const LOCALSTORAGE_VALUES = {
-        access_token: window.localStorage.getItem(LOCALSTORAGE_KEYS.accessToken),
-        refreshtoken: window.localStorage.getItem(LOCALSTORAGE_KEYS.refreshToken),
-        expireTime: window.localStorage.getItem(LOCALSTORAGE_KEYS.expireTime),
-        timestamp: window.localStorage.getItem(LOCALSTORAGE_KEYS.timestamp),
-
-}
+  accessToken: window.localStorage.getItem(LOCALSTORAGE_KEYS.accessToken),
+  refreshToken: window.localStorage.getItem(LOCALSTORAGE_KEYS.refreshToken),
+  expireTime: window.localStorage.getItem(LOCALSTORAGE_KEYS.expireTime),
+  timestamp: window.localStorage.getItem(LOCALSTORAGE_KEYS.timestamp),
+};
 
 /**
  * Checks if the amount of time that has elapsed between the timestamp in localStorage
