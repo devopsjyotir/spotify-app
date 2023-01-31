@@ -13,6 +13,14 @@ const refreshToken = urlParams.get('refresh_token')
 
 console.log(accessToken)
 console.log(refreshToken)
+
+if (refreshToken) {
+  fetch(`/refresh_token?refresh_token=${refreshToken}`)
+.then(res => res.json())
+.then(data => console.log(data))
+.catch(err => console.error(err))
+}
+
  }, [])
 
 
