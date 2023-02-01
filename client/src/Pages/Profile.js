@@ -1,6 +1,10 @@
+
 import { useState, useEffect } from 'react';
 import { catchErrors } from '../utils';
-import { getCurrentUserProfile } from '../spotify';
+import {getCurrentUserProfile} from '../Spotify';
+
+
+
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
@@ -8,7 +12,9 @@ const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await getCurrentUserProfile();
+ 
       setProfile(data);
+     
     };
 
     catchErrors(fetchData());
