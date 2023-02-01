@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { catchErrors } from '../utils';
-import {getCurrentUserProfile, getCurrentUserPlaylists, getTopArtists} from '../Spotify';
+import {getCurrentUserProfile, getCurrentUserPlaylists, getTopArtists, getTopTracks} from '../Spotify';
 import { StyledHeader } from '../styles';
 import { SectionWrapper, ArtistsGrid } from '../components';
 
@@ -13,6 +13,8 @@ const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [playlists, setPlaylists]= useState(null)
   const [topArtists, setTopArtists]= useState(null)
+  const [topTracks, setTopTracks]= useState(null)
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,8 +27,11 @@ const Profile = () => {
       const userTopArtist = await getTopArtists()
       setTopArtists(userTopArtist.data)
 
-      console.log(userPlaylists.data)
-      console.log(userTopArtist)
+      const userTopTrack = await getTopTracks()
+      setTopTracks(userTopTrack.data)
+
+   
+      console.log(userTopTrack)
     };
 
     catchErrors(fetchData());
