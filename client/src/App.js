@@ -1,6 +1,6 @@
 import { useState ,useEffect } from 'react';
 
-import './App.css';
+import styled from 'styled-components/macro';
 import { accessToken, logout, getCurrentUserProfile } from './Spotify';
 import { catchErrors } from './utils';
 // import TopArtists from './TopArtists';
@@ -51,6 +51,7 @@ function App() {
          </a>
        ) : (
          <Router>
+          <ScrollToTop />
            <Switch>
              <Route path="/top-artists">
                <h1>Top Artists</h1>
