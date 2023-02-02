@@ -9,7 +9,7 @@ const StyledLoginContainer = styled.main`
   height: 100vh;
 
     .logo {
-    width: 30%;
+    width: 40%;
   }
 `;
 
@@ -39,7 +39,9 @@ const Login = () => (
     Log in with Spotify
   </StyledLoginButton>
   <StyledLoginContainer>
-  <h3> Made by Jyotir Tyrese McEwan-Anamoah</h3>
+  <h3>App waiting approval by Spotify.For testing purposes:</h3>
+  <h3>username: tyresejyotir </h3>
+  <h3>password: Spotifycr7</h3>
   </StyledLoginContainer>
  
    
