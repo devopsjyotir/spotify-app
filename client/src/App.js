@@ -6,7 +6,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { accessToken, logout } from './Spotify';
-import { Login, Profile, TopArtists, TopTracks, Playlists } from './Pages';
+import { Login, Profile, TopArtists, TopTracks, Playlists, Playlist } from './Pages';
 import { GlobalStyle } from './styles';
 import styled from 'styled-components/macro';
 
@@ -66,7 +66,7 @@ function App() {
                 <TopTracks />
               </Route>
               <Route path="/playlists/:id">
-                <h1>Playlist</h1>
+                <Playlist />
               </Route>
               <Route path="/playlists">
                <Playlists />
