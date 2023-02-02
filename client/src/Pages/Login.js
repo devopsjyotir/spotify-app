@@ -38,6 +38,9 @@ const Login = () => (
   <StyledLoginButton href={LOGIN_URI}>
     Log in with Spotify
   </StyledLoginButton>
+  <h2> Made by Jyotir Tyrese McEwan-Anamoah</h2>
+   
+ 
 </StyledLoginContainer>
 );
 
