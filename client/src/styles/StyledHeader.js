@@ -5,10 +5,11 @@ const StyledHeader = styled.header`
   align-items: flex-end;
   position: relative;
   background: linear-gradient(transparent, rgba(0,0,0,0.5));
-  background-color: var(--grey);
+  background-color: var(--pinkish);
   height: 30vh;
   max-height: 500px;
   min-height: 250px;
+  
 
   @media (min-width: 768px) {
     min-height: 340px;
@@ -19,7 +20,7 @@ const StyledHeader = styled.header`
     display: block;
     width: 100%;
     height: 20vh;
-    background-color: var(--grey);
+    background-color: var(--pinkish);
     background-image: linear-gradient(rgba(0,0,0,0.6), var(--black));
     position: absolute;
     top: 100%;
@@ -33,6 +34,7 @@ const StyledHeader = styled.header`
     max-width: var(--site-max-width);
     margin: 0 auto;
     padding: var(--spacing-lg) var(--spacing-md);
+    
 
     @media (min-width: 768px) {
       padding: var(--spacing-xl) var(--spacing-xxl);
@@ -57,6 +59,7 @@ const StyledHeader = styled.header`
     text-transform: uppercase;
     font-size: var(--fz-xxs);
     font-weight: 700;
+    color: var(--white);
     margin-bottom: var(--spacing-xs);
   }
 
@@ -64,6 +67,7 @@ const StyledHeader = styled.header`
     font-size: clamp(2.5rem, 10vw, 6rem);
     font-weight: 900;
     line-height: 1;
+    color: var(--white);
     margin: 0 0 var(--spacing-xs) 0;
 
     @media (min-width: 768px) {
@@ -75,7 +79,7 @@ const StyledHeader = styled.header`
     display: flex;
     align-items: center;
     font-size: var(--fz-sm);
-    color: var(--light-grey);
+    color: var(--white);
     margin: 0;
 
     span {
@@ -86,7 +90,7 @@ const StyledHeader = styled.header`
         content: '•';
         display: block;
         margin: 0 var(--spacing-xs);
-        color: var(--light-grey);
+        color: var(--white);
         font-size: 8px;
       }
     }

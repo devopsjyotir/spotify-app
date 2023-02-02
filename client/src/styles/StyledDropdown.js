@@ -32,6 +32,11 @@ const StyledDropdown = styled.div`
     font-size: var(--fz-sm);
     font-family: inherit;
     padding: var(--spacing-xs) var(--spacing-xl) var(--spacing-xs) var(--spacing-sm);
+
+    &&:focus{
+      background: var(--dark-pinkish);
+      outline: none;
+    }
   }
 `;
 

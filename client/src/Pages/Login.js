@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import logoimg from '../assets/unwrapped.png'
 
 const StyledLoginContainer = styled.main`
   display: flex;
@@ -6,12 +7,16 @@ const StyledLoginContainer = styled.main`
   justify-content: center;
   align-items: center;
   height: 100vh;
+
+    .logo {
+    width: 20%;
+  }
 `;
 
 const StyledLoginButton = styled.a`
   display: inline-block;
-  background-color: var(--green);
-  color: var(--white);
+  background-color: var(--pinkish);
+  color: var(--grey);
   border-radius: var(--border-radius-pill);
   font-weight: 700;
   font-size: var(--fz-lg);
@@ -25,11 +30,13 @@ const StyledLoginButton = styled.a`
 `;
 
 const Login = () => (
-  <StyledLoginContainer>
-    <StyledLoginButton href="http://localhost:8888/login">
-      Log in to Spotify
-    </StyledLoginButton>
-  </StyledLoginContainer>
+  
+<StyledLoginContainer>
+  <img src={logoimg} class="logo" alt='logo'/>
+  <StyledLoginButton href="http://localhost:8888/login">
+    Log in with Spotify
+  </StyledLoginButton>
+</StyledLoginContainer>
 );
 
 export default Login;

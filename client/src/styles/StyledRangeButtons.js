@@ -31,7 +31,7 @@ const StyledRangeButtons = styled.ul`
     }
 
     &.active {
-      background-color: var(--green);
+      background-color: var(--dark-pinkish);
     }
   }
 `;

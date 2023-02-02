@@ -7,6 +7,8 @@ const variables = css`
     --dark-grey: #282828;
     --grey: #535353;
     --light-grey: #b3b3b3;
+    --pinkish: #ffb7b7;
+    --dark-pinkish: #a07c7c;
     --white: #ffffff;
     --green: #1DB954;
 

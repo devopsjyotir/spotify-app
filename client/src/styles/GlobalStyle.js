@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background-color: var(--black);
-    color: var(--white);
+    color: var(--pinkish);
     font-family: var(--font);
     font-size: var(--fz-md);
   }

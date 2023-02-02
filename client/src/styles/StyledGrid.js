@@ -21,10 +21,15 @@ const StyledGrid = styled.ul`
 
     &:hover,
     &:focus {
-      background-color: var(--dark-grey);
+      background-color: var(--dark-pinkish);
+      color: var(--black);
 
       img {
         box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+      }
+
+      .grid__item__label {
+        color: var(--white);
       }
     }
 
@@ -73,6 +78,8 @@ const StyledGrid = styled.ul`
   .grid__item__label {
     font-size: var(--fz-sm);
     color: var(--light-grey);
+
+   
   }
 `;
 

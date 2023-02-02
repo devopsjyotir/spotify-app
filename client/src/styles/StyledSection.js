@@ -9,6 +9,7 @@ const StyledSection = styled.section`
 
   .section__inner {
     width: 100%;
+    
     max-width: var(--site-max-width);
     margin: 0 auto;
     position: relative;
@@ -24,11 +25,13 @@ const StyledSection = styled.section`
     justify-content: space-between;
     align-items: stretch;
     margin-bottom: var(--spacing-xl);
+    
   }
 
   .section__heading {
     display: flex;
     margin: 0;
+    
     font-size: var(--fz-xxl);
   }
 
@@ -54,7 +57,7 @@ const StyledSection = styled.section`
     display: flex;
     align-items: flex-end;
     text-transform: uppercase;
-    color: var(--light-grey);
+    color: var(--white);
     font-size: var(--fz-xxs);
     font-weight: 700;
     letter-spacing: 0.1em;
