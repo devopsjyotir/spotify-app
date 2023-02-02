@@ -7,7 +7,7 @@
     "node": "18.3.0"
   },
 
-  "cacheDirectories":[
+  "cacheDirectories": [
     "node_modules",
     "client/node_modules"
   ],
@@ -17,7 +17,7 @@
     "client": "cd client && npm start",
     "postinstall": "cd client && npm install",
     "build": "NODE_ENV=production cd client/ && npm install && npm run build",
-    "start-server":"node index.js"
+    "start-server": "node index.js"
   },
   "repository": {
     "type": "git",

@@ -29,7 +29,7 @@ const StyledLoginButton = styled.a`
   }
 `;
 
-const LOGIN_URI = process.env.NODE_ENV !== 'production'? 'http://localhost:8888/login':'https://unwrapped-app.heroku.com/login'
+const LOGIN_URI = process.env.NODE_ENV !== 'production'? 'http://localhost:8888/login':'https://unwrapped-app.herokuapp.com/login'
 
 const Login = () => (
   
