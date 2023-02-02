@@ -9,7 +9,7 @@ const StyledLoginContainer = styled.main`
   height: 100vh;
 
     .logo {
-    width: 20%;
+    width: 30%;
   }
 `;
 
