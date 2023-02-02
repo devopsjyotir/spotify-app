@@ -29,11 +29,13 @@ const StyledLoginButton = styled.a`
   }
 `;
 
+const LOGIN_URI = process.env.NODE_ENV !== 'production'? 'http://localhost:8888/login':'https://unwrapped-app.heroku.com/login'
+
 const Login = () => (
   
 <StyledLoginContainer>
   <img src={logoimg} class="logo" alt='logo'/>
-  <StyledLoginButton href="http://localhost:8888/login">
+  <StyledLoginButton href={LOGIN_URI}>
     Log in with Spotify
   </StyledLoginButton>
 </StyledLoginContainer>
